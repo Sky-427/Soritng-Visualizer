@@ -133,14 +133,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bubbleSort.cpp" />
     <ClCompile Include="Chart.cpp" />
+    <ClCompile Include="insertionSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="selectionSort.cpp" />
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bubbleSort.h" />
     <ClInclude Include="Chart.h" />
+    <ClInclude Include="insertionSort.h" />
     <ClInclude Include="Program.h" />
+    <ClInclude Include="selectionSort.h" />
     <ClInclude Include="Text.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

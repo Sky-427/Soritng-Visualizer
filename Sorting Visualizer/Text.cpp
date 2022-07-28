@@ -1,5 +1,6 @@
 #include "Text.h"
 
+Text t;
 void Text::setString(std::string str) {
 	text.setString(str);
 }
@@ -17,4 +18,13 @@ float Text::size() {
 }
 void Text::setPosition(Text txt, float var, float size) {
 	text.setPosition({ txt.getPosition().x + var * size ,670});
+}
+std::string Text::getString() {
+	return text.getString();
+}
+sf::Font Text::getFont() {
+	return *text.getFont();
+}
+void Text::setFont(sf::Font ft) {
+	text.setFont(ft);
 }
