@@ -5,7 +5,7 @@ void Chart::make() {
 	if (part == 1) {
 		for (int i = 0; i < 900; ++i) {
 			float randomh = 1 + rand() % 600;
-			float index = i;
+			float index = i+30;
 			rect.setPosition({ index,630 }); rect.setSize({6.0,randomh});
 			rect.setFillColor(sf::Color::Yellow); rect.setRotation(180);
 			lines.push_back(rect);
