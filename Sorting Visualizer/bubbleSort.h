@@ -7,5 +7,6 @@
 class bubbleSort{
 public:
 	void sort(Chart,sf::RenderWindow&);
+private:
 	std::vector<Text> arr;
 };

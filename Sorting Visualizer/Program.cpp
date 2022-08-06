@@ -5,6 +5,9 @@
 #include "bubbleSort.h"
 #include "selectionSort.h"
 #include "insertionSort.h"
+#include "mergeSort.h"
+#include "shellShort.h"
+#include "radixSort.h"
 
 void Program::run() {
 
@@ -15,7 +18,7 @@ void Program::run() {
 	while (window.isOpen()) {
 		
 		//@adding text elements here
-		ch_.textTest(ch_.compareCounter,ch_.readCounter,ch_.swapCounter,ch_.working,ch_.sorted);
+		ch_.textTest(&ch_.compareCounter,&ch_.readCounter,&ch_.swapCounter,&ch_.working,&ch_.sorted);
 
 		//@events takes place here
 		sf::Event evt;
@@ -49,15 +52,18 @@ void Program::run() {
 								break;
 							}
 							case 3: {
-								//
+								ch_.working = 1;
+								mergeSort mg; mg.mergesort(&ch_,0,899,window);
 								break;
 							}
 							case 4: {
-								//text1.setString("Quick Sort  | ");
+								ch_.working = 1;
+								shellShort ss; ss.sort(ch_,window);
 								break;
 							}
 							case 5: {
-								//text1.setString("Radix Sort  | ");
+								ch_.working = 1;
+								radixSort rs; rs.sort(ch_,window);
 								break;
 							}
 							default: {

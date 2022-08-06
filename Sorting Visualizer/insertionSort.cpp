@@ -14,7 +14,7 @@ void insertionSort::sort(Chart ch, sf::RenderWindow& window) {
 		}
 		ch.lines[j + 1].setSize({6.0,key});
 		window.clear();
-		ch.textTest(ch.compareCounter, ch.readCounter, ch.swapCounter, ch.working, ch.sorted);
+		ch.textTest(&ch.compareCounter, &ch.readCounter, &ch.swapCounter, &ch.working, &ch.sorted);
 		for (int i = 0; i < 12; ++i) {
 			temp_arr[i].drawTo(window);
 		}

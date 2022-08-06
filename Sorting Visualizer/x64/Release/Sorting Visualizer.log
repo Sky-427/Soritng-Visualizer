@@ -1,9 +1,8 @@
-﻿  Chart.cpp
-C:\Users\tarun\source\repos\Sorting Visualizer\Sorting Visualizer\Chart.cpp(7,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\tarun\source\repos\Sorting Visualizer\Sorting Visualizer\Chart.cpp(8,16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+﻿  Program.cpp
+  mergeSort.cpp
   Generating code
-  3 of 209 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+  10 of 224 functions ( 4.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    13 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Sorting Visualizer.vcxproj -> C:\Users\tarun\source\repos\Sorting Visualizer\x64\Release\Sorting Visualizer.exe

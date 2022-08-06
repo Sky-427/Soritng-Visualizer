@@ -18,11 +18,13 @@ void selectionSort::sort(Chart ch, sf::RenderWindow& window) {
 		ch.lines[i].setSize({ 6.0,ch.lines[min_].getSize().y });
 		ch.lines[min_].setSize({ 6.0,pos });
 		window.clear();
-		ch.textTest(ch.compareCounter, ch.readCounter, ch.swapCounter, ch.working, ch.sorted);
+		ch.textTest(&ch.compareCounter, &ch.readCounter, &ch.swapCounter, &ch.working, &ch.sorted);
 		for (int i = 0; i < 12; ++i) {
 			temp_arr[i].drawTo(window);
 		}
+		ch.lines[i].setFillColor(sf::Color::Red);
 		ch.drawTo(window);
+		ch.lines[i].setFillColor(sf::Color::Yellow);
 		window.display();
 	}
 }

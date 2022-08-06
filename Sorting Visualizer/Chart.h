@@ -6,13 +6,13 @@
 class Chart{
 public:
 	int isCalled = 0;
-	long compareCounter = 0, readCounter = 0, swapCounter = 0;
+	int compareCounter = 0, readCounter = 0, swapCounter = 0;
 	bool working = 0, sorted = 0;
 	std::vector<sf::RectangleShape> lines;
 	void make();
 	void drawTo(sf::RenderWindow&);
 	void randomize();
-	void textTest(int,int,int,bool,bool);
+	void textTest(int*,int*,int*,bool*,bool*);
 	Text* getArray();
 	void up(int*);
 
