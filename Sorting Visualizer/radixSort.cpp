@@ -1,41 +1,57 @@
 #include "radixSort.h"
 
-void radixSort::sort(Chart ch, sf::RenderWindow& window) {
-	Text* temp_arr = ch.getArray();
-	float m=ch.lines[0].getSize().y;
-	for (int i = 1; i < ch.lines.size(); ++i) {
-		if (ch.lines[i].getSize().y > m) {
-			m = ch.lines[i].getSize().y;
-		}
+void radixSort::countSort(Chart* ch, int n, int a, sf::RenderWindow& window) {
+	Text* temp_arr = (*ch).getArray();
+	float *output = new float[n];
+	int i; float count[3] = { 0,0,0 };
+
+	for (int i = 0; i < n; ++i) {
+		count[(int)((*ch).lines[i].getSize().y / a) % 3]++;
 	}
-	window.clear();
-	ch.textTest(&ch.compareCounter, &ch.readCounter, &ch.swapCounter, &ch.working, &ch.sorted);
-	for (int i = 0; i < 12; ++i) {
-		temp_arr[i].drawTo(window);
+
+	for (int i = 1; i < 3; ++i) {
+		count[i] += count[i - 1];
 	}
-	for (int i = 1; m / i > 0; i *= 3) {
-		const int size = ch.lines.size();
-		float* arr = new float[size];
-		int j; float* arr1 = new float[3]{0};
 
-		for (int j = 0; j < size; ++j) {
-			arr1[(int)(ch.lines[j].getSize().y / i) % 3]++;
-		}
-		for (int j = 1; j < 3; ++j) {
-			arr1[j] += arr1[j - 1];
-		}
-		for (j = size - 1; j >= 0; --j) {
-			arr[(int)arr1[(int)(ch.lines[j].getSize().y / i) % 3] - 1] = ch.lines[j].getSize().y;
-			arr1[(int)(arr[j] / i) % 3]--;
-		}
+	for (int i = n - 1; i >= 0; --i) {
+		output[(int)count[(int)((*ch).lines[i].getSize().y / a) % 3] - 1] = (*ch).lines[i].getSize().y;
+		count[(int)((*ch).lines[i].getSize().y / a) % 3]--;
+		++ching.swapCounter;
+	}
 
-		for (int j = 0; j < size; ++i) {
-			ch.lines[j].setSize({6.0,arr1[j]});
-			++ch.compareCounter; ++ch.swapCounter;
+	for (int i = 0; i < n; ++i) {
+		(*ch).lines[i].setSize({ 6.0,output[i] });
+		window.clear();
+		(*ch).textTest(&ching.compareCounter, &ching.readCounter, &ching.swapCounter, &ching.working, &ching.sorted);
+		for (int i = 0; i < 12; ++i) {
+			temp_arr[i].drawTo(window);
+			++ching.readCounter;
 		}
-
-		delete[]arr, arr1;
-		ch.drawTo(window);
+		++ching.swapCounter;
+		(*ch).drawTo(window);
 		window.display();
 	}
+	delete[] output;
+}
+
+void radixSort::radixsort(Chart* ch, sf::RenderWindow& window) {
+	ching.working = true;
+	int m = getMax(ch,900);
+	for (int a = 1; m / a > 0; a *= 3) {
+		radixSort::countSort(ch,900,a, window);
+		++ching.compareCounter;
+	}
+	ching.sorted = true;
+}
+
+int  radixSort::getMax(Chart* ch, int n) {
+	float mx = (*ch).lines[0].getSize().y;
+	n = (*ch).lines.size();
+	for (int i = 1; i < n; ++i) {
+		if ((*ch).lines[i].getSize().y > mx) {
+			mx = (*ch).lines[i].getSize().y;
+		}
+		++ching.compareCounter;
+	}
+	return mx;
 }

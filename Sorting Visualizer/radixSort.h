@@ -3,6 +3,10 @@
 
 class radixSort{
 public:
-	void sort(Chart, sf::RenderWindow&);
+	void radixsort(Chart*, sf::RenderWindow&);
+	void countSort(Chart*, int, int, sf::RenderWindow&);
+	int getMax(Chart*, int n);
+private:
+	Chart ching;
 };
 

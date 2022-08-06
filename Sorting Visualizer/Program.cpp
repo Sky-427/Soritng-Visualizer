@@ -39,31 +39,36 @@ void Program::run() {
 							case 0: {
 								ch_.working = 1;						
 								bubbleSort bb; bb.sort(ch_, window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							case 1: {
 								ch_.working = 1;
 								selectionSort ss; ss.sort(ch_,window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							case 2: {
 								ch_.working = 1;
 								insertionSort is; is.sort(ch_,window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							case 3: {
-								ch_.working = 1;
 								mergeSort mg; mg.mergesort(&ch_,0,899,window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							case 4: {
 								ch_.working = 1;
 								shellShort ss; ss.sort(ch_,window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							case 5: {
 								ch_.working = 1;
-								radixSort rs; rs.sort(ch_,window);
+								radixSort rs; rs.radixsort(&ch_,window);
+								ch_.working = false; ch_.sorted = false;
 								break;
 							}
 							default: {
